@@ -1,6 +1,8 @@
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import "./ExpenseItem.css";
+
+// Stateless Components
 function ExpanseItem({ title, date, amount }) {
 	return (
 		<Card className="expense-item">
