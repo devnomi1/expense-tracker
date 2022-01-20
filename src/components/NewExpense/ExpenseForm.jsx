@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-function ExpenseForm() {
+function ExpenseForm(props) {
 	const [enteredTitle, setEnteredTitle] = useState("");
 	const [enteredAmount, setEnteredAmount] = useState("");
 	const [enteredDate, setEnteredDate] = useState("");
 
-	// // With Single State updating multiple inputs
+	// With Single State updating multiple inputs
+
 	// const [userInput, setUserInput] = useState({
 	// 	enteredTitle: "",
 	// 	enteredAmount: "",
@@ -14,13 +15,12 @@ function ExpenseForm() {
 
 	const handleChange = (event) => {
 		setEnteredTitle(event.target.value);
-		// Method one to update the multite state
+		// Method one to update the multiple states
 		// setUserInput({
 		//     ...userInput,
 		//     enteredTitle:event.target.value
-		// })
 
-		// method two
+		// Method two to update the multiple states
 		// setUserInput((prevState) => {
 		// 	return { ...prevState, enteredTitle: event.target.value };
 		// });
@@ -39,7 +39,8 @@ function ExpenseForm() {
 			amount: enteredAmount,
 			date: new Date(enteredDate),
 		};
-		console.log(expenseData);
+
+		props.onSaveExpenseData(expenseData);
 		setEnteredTitle("");
 		setEnteredAmount("");
 		setEnteredDate("");
@@ -57,8 +58,8 @@ function ExpenseForm() {
 					<input
 						type="number"
 						min="0.01"
-                        step="0.01"
-                        value={enteredAmount}
+						step="0.01"
+						value={enteredAmount}
 						onChange={handleChangeAmount}
 					/>
 				</div>
@@ -67,8 +68,8 @@ function ExpenseForm() {
 					<input
 						type="date"
 						min="2019-01-01"
-                        max="2022-12-31"
-                        value={enteredDate}
+						max="2022-12-31"
+						value={enteredDate}
 						onChange={handleChangeDate}
 					/>
 				</div>

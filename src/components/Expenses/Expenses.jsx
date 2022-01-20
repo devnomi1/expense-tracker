@@ -1,9 +1,13 @@
 import ExpanseItem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
+import ExpensesFilter from "./ExpensesFilter";
 function Expenses({ items }) {
 	return (
 		<Card className="expenses">
+			<div>
+				<ExpensesFilter/>
+			</div>
 			<ExpanseItem
 				title={items[0].title}
 				date={items[0].date}
