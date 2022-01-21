@@ -4,6 +4,7 @@ import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 // Controll or statefull Component
 function Expenses({ items }) {
@@ -23,6 +24,7 @@ function Expenses({ items }) {
 				selected={filteredYear}
 				onChangeFilter={filterChangeHandler}
 			/>
+			<ExpensesChart expenses={filteredExpense}/>
 			<ExpensesList items={filteredExpense} />
 		</Card>
 	);
